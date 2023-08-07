@@ -1,11 +1,13 @@
 import classes from './ProfileForm.module.css';
 import React,{useRef,useContext} from 'react';
 import AuthContext from '../../store/AuthContext';
+import {useNavigate} from 'react-router-dom';
 
 const ProfileForm = () => {
+  const navigate=useNavigate();
    const context=useContext(AuthContext);
   const changePasswordRef=useRef();
-  
+
   function submitHandler(event){
     event.preventDefault();
     const passwordRef=changePasswordRef.current.value;
@@ -20,7 +22,7 @@ const ProfileForm = () => {
         'Content-Type':'application/json'
       }
     }).then((res)=>{
-      console.log(res);
+      navigate('/');
     })
   }
   return (

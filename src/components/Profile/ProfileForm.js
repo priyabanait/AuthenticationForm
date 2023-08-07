@@ -1,9 +1,11 @@
 import classes from './ProfileForm.module.css';
 import React,{useRef,useContext} from 'react';
 import AuthContext from '../../store/AuthContext';
+
 const ProfileForm = () => {
    const context=useContext(AuthContext);
   const changePasswordRef=useRef();
+  
   function submitHandler(event){
     event.preventDefault();
     const passwordRef=changePasswordRef.current.value;
